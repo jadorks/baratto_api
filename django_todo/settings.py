@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'todo',
     'rest_framework',
     'coreapi',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,7 @@ TEMPLATES = [
 ]
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
 WSGI_APPLICATION = 'django_todo.wsgi.application'
