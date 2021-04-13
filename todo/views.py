@@ -90,5 +90,5 @@ class CategoryProductsView(ListAPIView):
                 category = category
             ).all()
         else:
-            return Product.objects.none()
+            return Products.objects.none()
 
