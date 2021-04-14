@@ -19,7 +19,6 @@ class ProductSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         rep = super(ProductSerializer, self).to_representation(instance)
-        print(rep["category"])
         rep['category'] = instance.category.title
         return rep
 

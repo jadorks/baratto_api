@@ -10,8 +10,8 @@ urlpatterns = [
     path("category/",views.ListCategoryAPIView.as_view(),name="category_list"),
     path("category/<int:pk>/",views.RetrieveCategoryAPIView.as_view(),name="category_single"),
     path("category/<int:pk>/products/",views.CategoryProductsView.as_view(),name="category_product_list"),
-    path("users/",views.ListUserAPIView.as_view(),name="users_list"),
-    path("users/<int:pk>/",views.UserDetailAPIView.as_view(),name="users_detail"),    
+    path("users/",views.CurrentUserAPIView.as_view(),name="users_list"),
+    path("users/<int:pk>",views.UserDetailAPIView.as_view(),name="users_detail"),    
     path("users/products/<int:pk>/",views.UserProductsAPIView.as_view(),name="users_products"),
     path("users/products/",views.CurrentUserProductsAPIView.as_view(),name="users_product"),
 

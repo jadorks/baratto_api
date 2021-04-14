@@ -19,6 +19,13 @@ class UserDetailAPIView(RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+class CurrentUserAPIView(ListAPIView):
+    """This endpoint lists the products of the logged in user"""
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        return User.objects.filter(id = self.request.user.id).all()
+
 class CurrentUserProductsAPIView(ListAPIView):
     """This endpoint lists the products of the logged in user"""
     serializer_class = ProductSerializer
@@ -80,6 +87,7 @@ class RetrieveCategoryAPIView(RetrieveAPIView):
     serializer_class = CategorySerializer
 
 class CategoryProductsView(ListAPIView):
+    """This endpoint allows for viewing products of a specific category"""
     serializer_class = ProductSerializer
 
     def get_queryset(self):
